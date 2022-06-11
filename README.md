@@ -1,7 +1,7 @@
 
-Source repository for dependencies used by the Lina project.
 
 ![Lina](Docs/Images/LinaLogo.png)
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
 
 # LinaDependencies
