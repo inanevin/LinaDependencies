@@ -1,12 +1,17 @@
-set(DIRNAME "freetype")
-set(LIBNAME "freetype")
+macro(link_freetype)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/Dependencies/${DIRNAME}/include)
+   set(DIRNAME "freetype")
+   set(LIBNAME "freetype")
 
-if(WIN32)
-   target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/Dependencies/${DIRNAME}/Win64/$<CONFIGURATION>/${LIBNAME}.lib)
-endif(WIN32)
+   target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
-if(UNIX)
-   target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/Dependencies/${DIRNAME}/Unix64/$<CONFIGURATION>/${LIBNAME}.a)
-endif(UNIX)
+   if(WIN32)
+      target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/$<CONFIGURATION>/${LIBNAME}.lib)
+   endif(WIN32)
+
+   if(UNIX)
+      target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/$<CONFIGURATION>/${LIBNAME}.a)
+   endif(UNIX)
+
+   message("${LIBNAME} has been linked.")
+endmacro()
