@@ -1,4 +1,4 @@
-macro(link_freetype)
+macro(link_openal)
 
    set(DIRNAME "openal")
    set(LIBNAME "OpenAL32")
