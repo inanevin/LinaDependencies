@@ -7,9 +7,9 @@ macro(link_assimp)
    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
    set(DEBUGLIB_WIN64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/${LIBNAME_DBG}.lib)
-   set(RELLIB_WIN64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/${LIBNAME_DBG}.lib)
+   set(RELLIB_WIN64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/${LIBNAME_RLS}.lib)
    set(DEBUGLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Debug/${LIBNAME_DBG}.a)
-   set(RELLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Release/${LIBNAME_DBG}.a)
+   set(RELLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Release/${LIBNAME_RLS}.a)
 
    if(WIN32)
       target_link_libraries(${PROJECT_NAME} PUBLIC ${DEBUGLIB_WIN64} ${RELLIB_WIN64})
