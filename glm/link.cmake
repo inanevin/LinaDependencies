@@ -1,4 +1,4 @@
-macro(link_freetype)
+macro(link_glm)
 
    set(DIRNAME "glm")
    set(LIBNAME "glm_static")
