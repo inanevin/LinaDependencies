@@ -1,4 +1,4 @@
-macro(link_freetype)
+macro(link_taskflow)
 
    set(LIBNAME "taskflow")
    set(DIRNAME "taskflow")

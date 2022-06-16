@@ -1,4 +1,4 @@
-macro(link_freetype)
+macro(link_physx)
 
    set(DIRNAME "PhysX")
    set(LIBNAME "PhysX")
