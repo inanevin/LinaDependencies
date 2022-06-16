@@ -12,11 +12,11 @@ macro(link_assimp)
    set(RELLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Release/${LIBNAME_RLS}.a)
 
    if(WIN32)
-      target_link_libraries(${PROJECT_NAME} PUBLIC Debug ${DEBUGLIB_WIN64} Release ${RELLIB_WIN64})
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${DEBUGLIB_WIN64} PUBLIC optimized ${RELLIB_WIN64})
    endif(WIN32)
 
    if(UNIX)
-      target_link_libraries(${PROJECT_NAME} PUBLIC Debug ${DEBUGLIB_UNIX64} Release ${RELLIB_UNIX64})
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${DEBUGLIB_UNIX64} PUBLIC optimized ${RELLIB_UNIX64})
    endif(UNIX)
 
    message("${PROJECT_NAME} -> ${DIRNAME} has been linked.")
