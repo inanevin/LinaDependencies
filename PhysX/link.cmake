@@ -1,6 +1,7 @@
 macro(link_freetype)
 
    set(DIRNAME "PhysX")
+   set(LIBNAME "PhysX")
 
    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
