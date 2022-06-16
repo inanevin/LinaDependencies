@@ -28,5 +28,5 @@ macro(link_freetype)
       target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/$<CONFIGURATION>/PhysXVehicle_static_64.a)
    endif(UNIX)
 
-   message("${LIBNAME} has been linked.")
+   message("${PROJECT_NAME} -> ${LIBNAME} has been linked.")
 endmacro()

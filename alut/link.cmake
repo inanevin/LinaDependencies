@@ -13,5 +13,5 @@ macro(link_alut)
       target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/$<CONFIGURATION>/${LIBNAME}.a)
    endif(UNIX)
 
-   message("${LIBNAME} has been linked.")
+   message("${PROJECT_NAME} -> ${LIBNAME} has been linked.")
 endmacro()
