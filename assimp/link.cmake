@@ -12,7 +12,7 @@ macro(link_assimp)
    set(RELLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Release/${LIBNAME_RLS}.a)
 
    if(WIN32)
-      target_link_libraries(${PROJECT_NAME} PUBLIC ${DEBUGLIB_WIN64} ${RELLIB_WIN64})
+      target_link_libraries(${PROJECT_NAME} PUBLIC ${DEBUGLIB_WIN64})
    endif(WIN32)
 
    if(UNIX)
