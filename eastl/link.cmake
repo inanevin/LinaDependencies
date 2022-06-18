@@ -1,0 +1,6 @@
+macro(link_eastl)
+   set(LIBNAME "eastl")
+   set(DIRNAME "eastl")
+   target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
+   message("${PROJECT_NAME} -> ${LIBNAME} has been linked.")
+endmacro()
