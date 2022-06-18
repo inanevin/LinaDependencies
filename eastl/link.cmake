@@ -19,5 +19,6 @@ macro(link_eastl)
       target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/$<CONFIGURATION>/${LIBNAME}.a)
    endif(UNIX)
 
+   add_custom_target(NatVis SOURCES ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include/EASTL.natvis)
    message("${PROJECT_NAME} -> ${LIBNAME} has been linked.")
 endmacro()
