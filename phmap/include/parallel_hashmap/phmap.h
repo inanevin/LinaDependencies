@@ -2149,7 +2149,7 @@ private:
     friend struct RawHashSetTestOnlyAccess;
 
     probe_seq<Group::kWidth> probe(size_t hashval) const {
-        return probe_seq<Group::kWidth>(H1(hashval, ctrl_), capacity_);
+         return probe_seq<Group::kWidth>(H1(hashval, ctrl_), capacity_);
     }
 
     // Reset all ctrl bytes back to kEmpty, except the sentinel.

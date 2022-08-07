@@ -10,9 +10,13 @@ macro(link_bit7z)
       target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/${LIBNAME_DBG}.lib optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/${LIBNAME_REL}.lib)
    endif(WIN32)
 
-   if(UNIX)
-   target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Debug/${LIBNAME_DBG}.a optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Release/${LIBNAME_REL}.a)
-   endif(UNIX)
+   if(LINUX)
+      arget_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/${LIBNAME_DBG}.a optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/${LIBNAME_REL}.a)
+   endif(LINUX)
+
+   if(APPLE)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/${LIBNAME_DBG}.a optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/${LIBNAME_REL}.a)
+   endif(APPLE)
 
    message("${PROJECT_NAME} -> ${DIRNAME} has been linked.")
 endmacro()

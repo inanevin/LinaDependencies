@@ -8,16 +8,22 @@ macro(link_assimp)
 
    set(DEBUGLIB_WIN64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/${LIBNAME_DBG}.lib)
    set(RELLIB_WIN64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/${LIBNAME_RLS}.lib)
-   set(DEBUGLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Debug/${LIBNAME_DBG}.a)
-   set(RELLIB_UNIX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/Release/${LIBNAME_RLS}.a)
+   set(DEBUGLIB_LINUX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/${LIBNAME_DBG}.a)
+   set(RELLIB_LINUX64 ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/${LIBNAME_RLS}.a)
+   set(DEBUGLIB_APPLE ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/${LIBNAME_DBG}.a)
+   set(RELLIB_APPLE ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/${LIBNAME_RLS}.a)
 
    if(WIN32)
       target_link_libraries(${PROJECT_NAME} PUBLIC debug ${DEBUGLIB_WIN64} PUBLIC optimized ${RELLIB_WIN64})
    endif(WIN32)
 
-   if(UNIX)
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${DEBUGLIB_UNIX64} PUBLIC optimized ${RELLIB_UNIX64})
-   endif(UNIX)
+   if(LINUX)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${DEBUGLIB_LINUX64} PUBLIC optimized ${RELLIB_LINUX64})
+   endif(LINUX)
+
+   if(APPLE)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${DEBUGLIB_APPLE} PUBLIC optimized ${RELLIB_APPLE})
+   endif(APPLE)
 
    message("${PROJECT_NAME} -> ${DIRNAME} has been linked.")
 endmacro()

@@ -15,9 +15,13 @@ macro(link_eastl)
       target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/$<CONFIGURATION>/${LIBNAME}.lib)
    endif(WIN32)
 
-   if(UNIX)
-      target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Unix64/$<CONFIGURATION>/${LIBNAME}.a)
-   endif(UNIX)
+   if(LINUX)
+      target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/$<CONFIGURATION>/${LIBNAME}.a)
+   endif(LINUX)
+
+   if(APPLE)
+      target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/$<CONFIGURATION>/${LIBNAME}.a)
+   endif(APPLE)
 
    add_custom_target(NatVis SOURCES ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/EASTL.natvis)
    message("${PROJECT_NAME} -> ${LIBNAME} has been linked.")
