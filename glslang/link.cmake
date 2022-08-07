@@ -5,8 +5,8 @@ macro(link_glslang)
    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
    if(WIN32)
-     # target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/GenericCodeGend.lib
-     # PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/GenericCodeGen.lib)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/GenericCodeGend.lib
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/GenericCodeGen.lib)
 
       target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/glslangd.lib
       PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/glslang.lib)
@@ -17,8 +17,8 @@ macro(link_glslang)
       target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/HLSLd.lib
       PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/HLSL.lib)
 
-    # target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/MachineIndependentd.lib
-    # PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/MachineIndependent.lib)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/MachineIndependentd.lib
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/MachineIndependent.lib)
 
       target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Debug/OGLCompilerd.lib
       PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Win64/Release/OGLCompiler.lib)
@@ -41,74 +41,74 @@ macro(link_glslang)
    endif(WIN32)
 
    if(LINUX)
-     # target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/GenericCodeGend.a
-     # PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/GenericCodeGen.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libGenericCodeGen.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/GenericCodeGen.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/glslangd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/glslang.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libglslang.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libglslang.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/glslang-default-resource-limitsd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/glslang-default-resource-limits.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libglslang-default-resource-limits.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libglslang-default-resource-limits.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/HLSLd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/HLSL.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libHLSL.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libHLSL.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/MachineIndependentd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/MachineIndependent.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libMachineIndependent.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libMachineIndependent.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/OGLCompilerd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/OGLCompiler.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libOGLCompiler.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libOGLCompiler.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/OSDependentd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/OSDependent.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libOSDependent.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libOSDependent.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/SPIRVd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/SPIRV.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libSPIRV.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libSPIRV.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/SPIRV-Toolsd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/SPIRV-Tools.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libSPIRV-Tools.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libSPIRV-Tools.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/SPIRV-Tools-optd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/SPIRV-Tools-opt.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libSPIRV-Tools-opt.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libSPIRV-Tools-opt.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/SPVRemapperd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/SPVRemapper.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Debug/libSPVRemapper.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Linux64/Release/libSPVRemapper.a)
    endif(LINUX)
 
    
    if(APPLE)
-     # target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/GenericCodeGend.a
-     # PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/GenericCodeGen.a)
+     # target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libGenericCodeGen.a
+     # PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libGenericCodeGen.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/glslangd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/glslang.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libglslang.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libglslang.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/glslang-default-resource-limitsd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/glslang-default-resource-limits.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libglslang-default-resource-limits.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libglslang-default-resource-limits.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/HLSLd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/HLSL.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libHLSL.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libHLSL.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/MachineIndependentd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/MachineIndependent.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libMachineIndependent.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libMachineIndependent.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/OGLCompilerd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/OGLCompiler.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libOGLCompiler.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libOGLCompiler.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/OSDependentd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/OSDependent.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libOSDependent.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libOSDependent.a)
 
-      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/SPIRVd.a
-      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/SPIRV.a)
+      target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libSPIRV.a
+      PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libSPIRV.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/SPIRV-Toolsd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/SPIRV-Tools.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libSPIRV-Tools.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libSPIRV-Tools.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/SPIRV-Tools-optd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/SPIRV-Tools-opt.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libSPIRV-Tools-opt.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libSPIRV-Tools-opt.a)
 
-    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/SPVRemapperd.a
-    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/SPVRemapper.a)
+    #  target_link_libraries(${PROJECT_NAME} PUBLIC debug ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Debug/libSPVRemapper.a
+    #  PUBLIC optimized ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/Apple/Release/libSPVRemapper.a)
    endif(APPLE)
 
    message("${PROJECT_NAME} -> ${DIRNAME} has been linked.")
