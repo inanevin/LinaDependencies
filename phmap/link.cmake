@@ -4,6 +4,6 @@ macro(link_phmap)
 
    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
-   add_custom_target(NatVis SOURCES ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/phmap.natvis)
+   add_custom_target(natvis_phmap SOURCES ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/phmap.natvis)
    message("${PROJECT_NAME} -> ${DIRNAME} has been linked.")
 endmacro()
