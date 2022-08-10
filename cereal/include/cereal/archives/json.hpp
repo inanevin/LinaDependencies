@@ -256,6 +256,8 @@ namespace cereal
       void saveValue(double d)              { itsWriter.Double(d);                                                       }
       //! Saves a string to the current node
       void saveValue(std::string const & s) { itsWriter.String(s.c_str(), static_cast<CEREAL_RAPIDJSON_NAMESPACE::SizeType>( s.size() )); }
+      void saveValue(eastl::string const& s) { itsWriter.String(s.c_str(), static_cast<CEREAL_RAPIDJSON_NAMESPACE::SizeType>(s.size())); }
+
       //! Saves a const char * to the current node
       void saveValue(char const * s)        { itsWriter.String(s);                                                       }
       //! Saves a nullptr to the current node
@@ -650,7 +652,8 @@ namespace cereal
       //! Loads a value from the current node - double overload
       void loadValue(double & val)      { search(); val = itsIteratorStack.back().value().GetDouble(); ++itsIteratorStack.back(); }
       //! Loads a value from the current node - string overload
-      void loadValue(std::string & val) { search(); val = itsIteratorStack.back().value().GetString(); ++itsIteratorStack.back(); }
+      void loadValue(std::string& val) { search(); val = itsIteratorStack.back().value().GetString(); ++itsIteratorStack.back(); }
+      void loadValue(eastl::string & val) { search(); val = itsIteratorStack.back().value().GetString(); ++itsIteratorStack.back(); }
       //! Loads a nullptr from the current node
       void loadValue(std::nullptr_t&)   { search(); CEREAL_RAPIDJSON_ASSERT(itsIteratorStack.back().value().IsNull()); ++itsIteratorStack.back(); }
 
@@ -917,9 +920,19 @@ namespace cereal
     ar.writeName();
   }
 
+  template<class CharT, class Alloc> inline
+  void prologue(JSONOutputArchive& ar, eastl::basic_string<CharT, Alloc> const&)
+  {
+      ar.writeName();
+  }
+
   //! Prologue for strings for JSON archives
   template<class CharT, class Traits, class Alloc> inline
   void prologue(JSONInputArchive &, std::basic_string<CharT, Traits, Alloc> const &)
+  { }
+
+  template<class CharT, class Alloc> inline
+      void prologue(JSONInputArchive&, eastl::basic_string<CharT, Alloc> const&)
   { }
 
   // ######################################################################
@@ -991,6 +1004,20 @@ namespace cereal
   void CEREAL_LOAD_FUNCTION_NAME(JSONInputArchive & ar, std::basic_string<CharT, Traits, Alloc> & str)
   {
     ar.loadValue( str );
+  }
+
+  //! saving string to JSON
+  template<class CharT, class Alloc> inline
+      void CEREAL_SAVE_FUNCTION_NAME(JSONOutputArchive& ar, eastl::basic_string<CharT, Alloc> const& str)
+  {
+      ar.saveValue(str);
+  }
+
+  //! loading string from JSON
+  template<class CharT, class Alloc> inline
+      void CEREAL_LOAD_FUNCTION_NAME(JSONInputArchive& ar, eastl::basic_string<CharT, Alloc>& str)
+  {
+      ar.loadValue(str);
   }
 
   // ######################################################################

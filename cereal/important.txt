@@ -1,0 +1,30 @@
+This version of cereal has been modified to support eastl::string serialization on it's internal JSON serializer.
+
+cereal/archives/json.hpp
+
+void saveValue(eastl::string const& s) { itsWriter.String(s.c_str(), static_cast<CEREAL_RAPIDJSON_NAMESPACE::SizeType>(s.size())); }
+void loadValue(eastl::string & val) { search(); val = itsIteratorStack.back().value().GetString(); ++itsIteratorStack.back(); }
+
+template<class CharT, class Alloc> inline
+void prologue(JSONOutputArchive& ar, eastl::basic_string<CharT, Alloc> const&)
+{
+    ar.writeName();
+}
+  
+template<class CharT, class Alloc> inline
+void prologue(JSONInputArchive&, eastl::basic_string<CharT, Alloc> const&)
+{ }
+
+  //! saving string to JSON
+  template<class CharT, class Alloc> inline
+      void CEREAL_SAVE_FUNCTION_NAME(JSONOutputArchive& ar, eastl::basic_string<CharT, Alloc> const& str)
+  {
+      ar.saveValue(str);
+  }
+
+  //! loading string from JSON
+  template<class CharT, class Alloc> inline
+      void CEREAL_LOAD_FUNCTION_NAME(JSONInputArchive& ar, eastl::basic_string<CharT, Alloc>& str)
+  {
+      ar.loadValue(str);
+  }
