@@ -1,9 +1,4 @@
-
-<br/>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/3519379/173830836-d390e164-fe59-4b9d-950a-c28fa3ebc037.png">
-</p>
-<br/>
+![Lina](https://user-images.githubusercontent.com/62678643/184521464-8841724e-65fa-474b-9cd4-df9f2a87889b.svg)
 
 <div align="center">
   
