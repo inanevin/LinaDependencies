@@ -1,0 +1,3 @@
+whole entity folder & includes have been stripped away.
+
+only events & hashed string is currently in use.
