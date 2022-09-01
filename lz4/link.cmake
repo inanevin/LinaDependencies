@@ -1,7 +1,7 @@
 macro(link_lz4)
 
    set(DIRNAME "lz4")
-   set(LIBNAME "liblz4_static")
+   set(LIBNAME "LZ4")
 
    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
