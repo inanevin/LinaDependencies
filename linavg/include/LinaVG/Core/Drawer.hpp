@@ -257,7 +257,7 @@ namespace LinaVG
     /// <param name="drawOrder">Shapes with lower draw order is drawn first, resulting at the very bottom Z layer.</param>
     /// <param name="skipCache">Even if text caching is enabled globally, setting this to true will skip it for this call. Best used for dynamically changing text such as number counters. </param>
     /// <returns></returns>
-    LINAVG_API void DrawTextNormal(const LINAVG_STRING& text, const Vec2& position, const TextOptions& opts, float rotateAngle = 0.0f, int drawOrder = 0, bool skipCache = false);
+    LINAVG_API void DrawTextNormal(const char* text, const Vec2& position, const TextOptions& opts, float rotateAngle = 0.0f, int drawOrder = 0, bool skipCache = false);
 
     /// <summary>
     /// Draws the given text at position as an SDF text, which produces a lot more high-quality results than normal text, regardless
@@ -272,7 +272,7 @@ namespace LinaVG
     /// <param name="drawOrder">Shapes with lower draw order is drawn first, resulting at the very bottom Z layer.</param>
     /// <param name="skipCache">Even if text caching is enabled globally, setting this to true will skip it for this call. Best used for dynamically changing text such as number counters. </param>
     /// <returns></returns>
-    LINAVG_API void DrawTextSDF(const LINAVG_STRING& text, const Vec2& position, const SDFTextOptions& opts, float rotateAngle = 0.0f, int drawOrder = 0, bool skipCache = false);
+    LINAVG_API void DrawTextSDF(const char* text, const Vec2& position, const SDFTextOptions& opts, float rotateAngle = 0.0f, int drawOrder = 0, bool skipCache = false);
 
     /// <summary>
     /// Returns a Vec2 containing max width & height this text will occupy.
@@ -281,7 +281,7 @@ namespace LinaVG
     /// <param name="text">Text, lol.</param>
     /// <param name="opts">Style options used to draw the text.</param>
     /// <returns></returns>
-    LINAVG_API Vec2 CalculateTextSize(const LINAVG_STRING& text, TextOptions& opts);
+    LINAVG_API Vec2 CalculateTextSize(const char* text, TextOptions& opts);
 
     /// <summary>
     /// Returns a Vec2 containing max width & height this text will occupy.
@@ -290,7 +290,7 @@ namespace LinaVG
     /// <param name="text">Text, lol.</param>
     /// <param name="opts">Style options used to draw the text.</param>
     /// <returns></returns>
-    LINAVG_API Vec2 CalculateTextSize(const LINAVG_STRING& text, SDFTextOptions& opts);
+    LINAVG_API Vec2 CalculateTextSize(const char* text, SDFTextOptions& opts);
 
 #endif
 
@@ -438,7 +438,7 @@ namespace LinaVG
         /// <summary>
         /// Break down text into words, with each word having calculated size properties.
         /// </summary>
-        void ParseTextIntoWords(Array<TextPart*>& arr, const LINAVG_STRING& text, LinaVGFont* font, float scale, float spacing);
+        void ParseTextIntoWords(Array<TextPart*>& arr, const char* text, LinaVGFont* font, float scale, float spacing);
 
         /// <summary>
         /// Converts the given words into a set of lines based on wrapping.
@@ -448,12 +448,12 @@ namespace LinaVG
         /// <summary>
         /// Process, parse & draw text according to options.
         /// </summary>
-        void ProcessText(DrawBuffer* buf, LinaVGFont* font, const LINAVG_STRING& text, const Vec2& pos, const Vec2& offset, const Vec4Grad& color, float spacing, bool isGradient, float scale, float wrapWidth, float rotateAngle, TextAlignment alignment, float newLineSpacing, float sdfThickness);
+        void ProcessText(DrawBuffer* buf, LinaVGFont* font, const char* text, const Vec2& pos, const Vec2& offset, const Vec4Grad& color, float spacing, bool isGradient, float scale, float wrapWidth, float rotateAngle, TextAlignment alignment, float newLineSpacing, float sdfThickness);
 
         /// <summary>
         /// DrawText implementation.
         /// </summary>
-        void DrawTextAQ(DrawBuffer* buf, LinaVGFont* font, const char* text, const Vec2& pos, const Vec2& offset, const Vec4Grad& color, float spacing, bool isGradient, float scale);
+        void DrawText(DrawBuffer* buf, LinaVGFont* font, const char* text, const Vec2& pos, const Vec2& offset, const Vec4Grad& color, float spacing, bool isGradient, float scale);
 
         /// <summary>
         /// Returns the total text size for non-wrapped text.
@@ -470,7 +470,7 @@ namespace LinaVG
         /// <summary>
         /// Returns the total text size for wrapped text.
         /// </summary>
-        Vec2 CalcTextSizeWrapped(const LINAVG_STRING& text, LinaVGFont*, float newLineSpacing, float wrapping, float scale, float spacing, float sdfThickness);
+        Vec2 CalcTextSizeWrapped(const char* text, LinaVGFont*, float newLineSpacing, float wrapping, float scale, float spacing, float sdfThickness);
 
         void DrawDebugFontAtlas(const Vec2& pos, FontHandle handle);
 
