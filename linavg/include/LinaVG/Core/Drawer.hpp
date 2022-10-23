@@ -245,6 +245,7 @@ namespace LinaVG
 
 #ifdef LINAVG_TEXT_SUPPORT
 
+    void TestDraw();
     /// <summary>
     /// Draws the given text at position. The font used in Text Options must be loaded as normal font, e.g. non-sdf.
     /// Given position will be upper-left corner of the text. Use CalculateTextSize to offset the text, e.g. center.
@@ -452,7 +453,7 @@ namespace LinaVG
         /// <summary>
         /// DrawText implementation.
         /// </summary>
-        void DrawText(DrawBuffer* buf, LinaVGFont* font, const char* text, const Vec2& pos, const Vec2& offset, const Vec4Grad& color, float spacing, bool isGradient, float scale);
+        void DrawTextAQ(DrawBuffer* buf, LinaVGFont* font, const char* text, const Vec2& pos, const Vec2& offset, const Vec4Grad& color, float spacing, bool isGradient, float scale);
 
         /// <summary>
         /// Returns the total text size for non-wrapped text.
