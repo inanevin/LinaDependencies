@@ -39,6 +39,43 @@
 #include <float.h>
 #if defined(_CPPLIB_VER)            // Dinkumware.
 	#include <ymath.h>
+
+#if _MSC_VER >= 1934
+
+#define _DENORM  (-2) // C9X only
+#define _FINITE  (-1)
+
+void __CLRCALL_PURE_OR_CDECL _Feraise(int);
+
+union _Dconst { // pun float types as integer array
+	unsigned short _Word[8]; // TRANSITION, ABI: Twice as large as necessary.
+	float _Float;
+	double _Double;
+	long double _Long_double;
+};
+
+_CRTIMP2_PURE short __CLRCALL_PURE_OR_CDECL _Dtest(double*);
+
+extern _CRTIMP2_PURE_IMPORT _Dconst _Denorm;
+extern _CRTIMP2_PURE_IMPORT _Dconst _Hugeval;
+extern _CRTIMP2_PURE_IMPORT _Dconst _Inf;
+extern _CRTIMP2_PURE_IMPORT _Dconst _Nan;
+extern _CRTIMP2_PURE_IMPORT _Dconst _Snan;
+
+_CRTIMP2_PURE short __CLRCALL_PURE_OR_CDECL _FDtest(float*);
+
+extern _CRTIMP2_PURE_IMPORT _Dconst _FDenorm;
+extern _CRTIMP2_PURE_IMPORT _Dconst _FInf;
+extern _CRTIMP2_PURE_IMPORT _Dconst _FNan;
+extern _CRTIMP2_PURE_IMPORT _Dconst _FSnan;
+
+extern _CRTIMP2_PURE_IMPORT _Dconst _LDenorm;
+extern _CRTIMP2_PURE_IMPORT _Dconst _LInf;
+extern _CRTIMP2_PURE_IMPORT _Dconst _LNan;
+extern _CRTIMP2_PURE_IMPORT _Dconst _LSnan;
+
+#endif
+
 #endif
 
 #if defined(EA_PRAGMA_ONCE_SUPPORTED)
