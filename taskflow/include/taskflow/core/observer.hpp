@@ -1,5 +1,15 @@
 #pragma once
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(push)
+#pragma warning(disable:26439)
+#pragma warning(disable:26495)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
+
+
 #include "task.hpp"
 #include "worker.hpp"
 
@@ -740,3 +750,8 @@ inline const char* to_string(ObserverType type) {
 }  // end of namespace tf -----------------------------------------------------
 
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif

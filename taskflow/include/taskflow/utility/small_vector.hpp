@@ -1,5 +1,13 @@
 // small vector modified from llvm
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(push)
+#pragma warning(disable:6387)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
+
 #pragma once
 
 #include <algorithm>
@@ -1038,3 +1046,8 @@ namespace std {
 }  // end of namespace std ----------------------------------------------------
 
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif
