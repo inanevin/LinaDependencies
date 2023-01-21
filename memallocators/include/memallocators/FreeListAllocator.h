@@ -4,27 +4,30 @@
 #include "Allocator.h"
 #include "SinglyLinkedList.h"
 
-class FreeListAllocator : public Allocator {
+class FreeListAllocator : public Allocator
+{
 public:
-    enum PlacementPolicy {
+    enum PlacementPolicy
+    {
         FIND_FIRST,
         FIND_BEST
     };
 
 private:
-    struct FreeHeader {
+    struct FreeHeader
+    {
         std::size_t blockSize;
     };
-    struct AllocationHeader {
+    struct AllocationHeader
+    {
         std::size_t blockSize;
-        char padding;
+        char        padding;
     };
-    
+
     typedef SinglyLinkedList<FreeHeader>::Node Node;
 
-    
-    void* m_start_ptr = nullptr;
-    PlacementPolicy m_pPolicy;
+    void*                        m_start_ptr = nullptr;
+    PlacementPolicy              m_pPolicy;
     SinglyLinkedList<FreeHeader> m_freeList;
 
 public:
@@ -39,10 +42,16 @@ public:
     virtual void Init() override;
 
     virtual void Reset();
-private:
-    FreeListAllocator(FreeListAllocator &freeListAllocator);
 
-    void Coalescence(Node* prevBlock, Node * freeBlock);
+    virtual void* GetStartPtr() override
+    {
+        return m_start_ptr;
+    }
+
+private:
+    FreeListAllocator(FreeListAllocator& freeListAllocator);
+
+    void Coalescence(Node* prevBlock, Node* freeBlock);
 
     void Find(const std::size_t size, const std::size_t alignment, std::size_t& padding, Node*& previousNode, Node*& foundNode);
     void FindBest(const std::size_t size, const std::size_t alignment, std::size_t& padding, Node*& previousNode, Node*& foundNode);
@@ -50,4 +59,3 @@ private:
 };
 
 #endif /* FREELISTALLOCATOR_H */
-

@@ -3,10 +3,12 @@
 
 #include "Allocator.h"
 
-class StackAllocator : public Allocator {
+class StackAllocator : public Allocator
+{
 protected:
-    void* m_start_ptr = nullptr;
+    void*       m_start_ptr = nullptr;
     std::size_t m_offset;
+
 public:
     StackAllocator(const std::size_t totalSize);
 
@@ -19,13 +21,19 @@ public:
     virtual void Init() override;
 
     virtual void Reset();
-private:
-    StackAllocator(StackAllocator &stackAllocator);
 
-    struct AllocationHeader {
+    virtual void* GetStartPtr() override
+    {
+        return m_start_ptr;
+    }
+
+private:
+    StackAllocator(StackAllocator& stackAllocator);
+
+    struct AllocationHeader
+    {
         char padding;
     };
-
 };
 
 #endif /* STACKALLOCATOR_H */

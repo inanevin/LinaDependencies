@@ -1,15 +1,18 @@
 #include "Allocator.h"
 #include "StackLinkedList.h"
 
-class PoolAllocator : public Allocator {
+class PoolAllocator : public Allocator
+{
 private:
-    struct  FreeHeader{
+    struct FreeHeader
+    {
     };
     using Node = StackLinkedList<FreeHeader>::Node;
     StackLinkedList<FreeHeader> m_freeList;
 
-    void * m_start_ptr = nullptr;
+    void*       m_start_ptr = nullptr;
     std::size_t m_chunkSize;
+
 public:
     PoolAllocator(const std::size_t totalSize, const std::size_t chunkSize);
 
@@ -22,7 +25,12 @@ public:
     virtual void Init() override;
 
     virtual void Reset();
-private:
-    PoolAllocator(PoolAllocator &poolAllocator);
 
+    virtual void* GetStartPtr() override
+    {
+        return m_start_ptr;
+    }
+
+private:
+    PoolAllocator(PoolAllocator& poolAllocator);
 };
