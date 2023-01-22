@@ -80,7 +80,7 @@
      TF_OS_LINUX + TF_OS_DRAGONFLY + TF_OS_FREEBSD + TF_OS_NETBSD +        \
      TF_OS_OPENBSD + TF_OS_DARWIN + TF_OS_WINDOWS + TF_OS_HURD +           \
      TF_OS_SOLARIS)
-#error Unknown OS
+#define TF_OS_UNKNOWN 1
 #endif
 
 #if TF_OS_LINUX || TF_OS_DRAGONFLY || TF_OS_FREEBSD || TF_OS_NETBSD ||     \
@@ -118,6 +118,8 @@
   #define TF_CACHELINE_SIZE 64
 #endif
 
+
+
 //-----------------------------------------------------------------------------
 // pause
 //-----------------------------------------------------------------------------
@@ -126,12 +128,14 @@
 //  #include <immintrin.h>
 //#endif
 
-
-
-
-
-
 namespace tf {
+
+// Struct: CachelineAligned
+// Due to prefetch, we typically do 2x cacheline for the alignment.
+template <typename T>
+struct CachelineAligned {
+  alignas (2*TF_CACHELINE_SIZE) T data;
+};
 
 // Function: get_env
 inline std::string get_env(const std::string& str) {

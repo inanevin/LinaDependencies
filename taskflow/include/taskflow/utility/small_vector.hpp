@@ -1,5 +1,6 @@
 // small vector modified from llvm
 
+#pragma once
 #ifdef LINA_COMPILER_MSVC
 #pragma warning(push)
 #pragma warning(disable:6387)
@@ -7,8 +8,6 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #endif
-
-#pragma once
 
 #include <algorithm>
 #include <cassert>
@@ -127,11 +126,19 @@ class SmallVectorTemplateCommon : public SmallVectorBase {
   private:
   template <typename, unsigned> friend struct SmallVectorStorage;
 
+  template <typename X>
+  struct AlignedUnionType {
+    alignas(X) std::byte buff[std::max(sizeof(std::byte), sizeof(X))];
+  };
+
   // Allocate raw space for N elements of type T.  If T has a ctor or dtor, we
   // don't want it to be automatically run, so we need to represent the space as
   // something else.  Use an array of char of sufficient alignment.
-  ////////////typedef tf::AlignedCharArrayUnion<T> U;
-  typedef typename std::aligned_union<1, T>::type U;
+  
+  // deprecated in c++23
+  //typedef typename std::aligned_union<1, T>::type U;
+  typedef AlignedUnionType<T> U;
+
   U FirstEl;
   // Space after 'FirstEl' is clobbered, do not add any instance vars after it.
 

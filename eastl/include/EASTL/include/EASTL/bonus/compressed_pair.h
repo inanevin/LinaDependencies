@@ -59,6 +59,13 @@
 #ifndef EASTL_COMPRESSED_PAIR_H
 #define EASTL_COMPRESSED_PAIR_H
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(push)
+#pragma warning(disable:26495)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
 
 #include <EASTL/internal/config.h>
 #include <EASTL/type_traits.h>     
@@ -458,3 +465,8 @@ namespace eastl
 
 
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif

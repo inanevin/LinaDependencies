@@ -10,6 +10,7 @@
 #endif
 
 
+
 #include "flow_builder.hpp"
 
 /**
@@ -668,8 +669,6 @@ bool Future<T>::cancel() {
 
 
 }  // end of namespace tf. ---------------------------------------------------
-
-
 #ifdef LINA_COMPILER_MSVC
 #pragma warning(pop)
 #else
