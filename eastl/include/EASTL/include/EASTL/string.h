@@ -86,6 +86,13 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(push)
+#pragma warning(disable:26495)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
 
 #ifndef EASTL_STRING_H
 #define EASTL_STRING_H
@@ -4103,3 +4110,8 @@ EA_RESTORE_VC_WARNING();
 
 
 #endif // Header include guard
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif

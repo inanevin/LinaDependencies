@@ -1,5 +1,14 @@
+
 #if !defined(phmap_base_h_guard_)
 #define phmap_base_h_guard_
+
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(push)
+#pragma warning(disable:26495)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
 
 // ---------------------------------------------------------------------------
 // Copyright (c) 2019, Gregory Popovitch - greg7mdp@gmail.com
@@ -5169,3 +5178,9 @@ public:
 
 
 #endif // phmap_base_h_guard_
+
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif
