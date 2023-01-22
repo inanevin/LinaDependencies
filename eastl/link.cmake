@@ -24,5 +24,7 @@ macro(link_eastl)
    endif(APPLE)
 
    add_custom_target(NatVis SOURCES ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/EASTL.natvis)
+   set_target_properties(NatVis PROPERTIES FOLDER "CustomTargets")
+
    message("${PROJECT_NAME} -> ${LIBNAME} has been linked.")
 endmacro()
