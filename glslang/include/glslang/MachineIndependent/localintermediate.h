@@ -36,6 +36,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(push)
+#pragma warning(disable:26495)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
+
 #ifndef _LOCAL_INTERMEDIATE_INCLUDED_
 #define _LOCAL_INTERMEDIATE_INCLUDED_
 
@@ -1219,3 +1227,9 @@ private:
 } // end namespace glslang
 
 #endif // _LOCAL_INTERMEDIATE_INCLUDED_
+
+#ifdef LINA_COMPILER_MSVC
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif
