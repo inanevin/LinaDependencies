@@ -1,7 +1,7 @@
 macro(link_dxc)
 
    set(DIRNAME "dxc")
-   set(LIBNAME "dxc")
+   set(LIBNAME "dxcompiler")
 
    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/_Dependencies/${DIRNAME}/include)
 
