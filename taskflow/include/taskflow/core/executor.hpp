@@ -3,9 +3,6 @@
 #ifdef LINA_COMPILER_MSVC
 #pragma warning(push)
 #pragma warning(disable:28182)
-#else
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-parameter"
 #endif
 
 
@@ -2142,8 +2139,6 @@ void Runtime::run_and_wait(T&& target) {
 
 #ifdef LINA_COMPILER_MSVC
 #pragma warning(pop)
-#else
-#pragma GCC diagnostic pop
 #endif
 
 

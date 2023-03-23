@@ -96,7 +96,7 @@ EA_RESTORE_ALL_VC_WARNINGS()
 // 4480 - nonstandard extension used: specifying underlying type for enum
 // 4530 - C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
 // 4571 - catch(...) semantics changed since Visual C++ 7.1; structured exceptions (SEH) are no longer caught.
-EA_DISABLE_VC_WARNING(4267 4345 4480 4530 4571);
+EA_DISABLE_VC_WARNING(4267 4345 4480 4530 4571 26439);
 
 #if EASTL_EXCEPTIONS_ENABLED
 	// 4703 - potentially uninitialized local pointer variable used. VC++ is mistakenly analyzing the possibility of uninitialized variables, though it's not easy for it to do so.
