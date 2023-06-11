@@ -393,6 +393,23 @@ namespace LinaVG
         Center,
         Right
     };
+
+    struct CharacterInfo
+    {
+        float x     = 0.0f;
+        float y     = 0.0f;
+        float sizeX = 0.0f;
+        float sizeY = 0.0f;
+    };
+
+    LINAVG_API struct TextOutData
+    {
+        /// <summary>
+        /// Upon drawing a text, this vector contains position and size information for each character.
+        /// </summary>
+        LINAVG_VEC<CharacterInfo> characterInfo;
+    };
+
     /// <summary>
     /// Text styling, DrawText will render the given text as normal or via signed-distance-field (SDF) methods.
     /// This depends on the font handle given with options (or default font if not-provided).
@@ -678,14 +695,6 @@ namespace LinaVG
         /// This is because miter joins the line points on intersection, ang with a very small angle (closer to 180) intersections get close to infinity.
         /// </summary>
         float miterLimit = 150;
-
-        /// <summary>
-        /// If true, texts will be drawn by interpreting each character w/ 32 bit encoding.
-        /// Set this to true if you want to draw unicode characters.
-        /// Also you need to load the glyph ranges using customRanges in LoadFont.
-        /// Do not forget to send your text with in utf8-format, e.g. c++11 > u8"my string"
-        /// </summary>
-        bool useUnicodeEncoding = false;
 
         /// <summary>
         /// Maximum size a font texture atlas can have, all atlasses are square, so this is used for both width and height.
