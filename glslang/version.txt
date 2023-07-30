@@ -1,2 +1,0 @@
-master-tot
-https://github.com/KhronosGroup/glslang/releases/tag/master-tot
